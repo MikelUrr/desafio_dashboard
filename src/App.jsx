@@ -4,6 +4,8 @@ import './App.css'
 import Login from './pages/login';
 import Userbar from './components/Userbar';
 import Dashboard from './pages/Dashboard';
+import Analiticas from './pages/analiticas';
+
 function App() {
   
 
@@ -15,7 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />}></Route>
         <Route path='/dashboard' element={<Dashboard />} />
-        {/* <Route path='/menu' element={<Menu />} />
+        <Route path='/analiticas' element={<Analiticas />} />{/* 
         <Route path='/stats' element={<Stats />} />  */}
         <Route path='*' element={<div>404 Not found</div>}></Route>
       </Routes>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./components.css";
 import { fetchUserData } from "./../js/fetch.js";
-import getDaytime from "../js/functions.js";
+import {getDaytime} from "../js/functions.js";
 
 
 const Userbar = () => {
@@ -28,7 +28,7 @@ const getTime=()=>{
         fetchData();
     }, []);
 
-  console.log("holaaa22342",daytime);
+  
 
   if (!userData) {
     
@@ -50,8 +50,8 @@ const getTime=()=>{
                     <img src="/woman.png" alt="user" />
                     <div className="userbar__container--user--content">
 
-                        <p className="p-line1">Nombre Apellido</p>
-                        <p className="p-line2" >Buenos dias</p>
+                        <p className="p-line1">{userData.name} {userData.surname}</p>
+                        <p className="p-line2" >Hi, {userData.rol}</p>
                     </div>
                 </div>
             </div>
