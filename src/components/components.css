@@ -187,11 +187,11 @@ li.active {
 /* HappyChart css */
 
 .happychart-container {
- 
+
  
 display: flex;
 position: fixed;
-left: 280px;
+left: 290px;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
@@ -271,13 +271,24 @@ letter-spacing: 0.15px;
 .happychart-labels
 {
    position: fixed;
-   right: 45px;
+   left: 860px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     top: 170px;
 }
-.happychart-labels p{
+/*para el dashboard*/
+
+.happychart-labels_dash{
+    position: fixed;
+   left: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 170px;
+}
+
+.happychart-labels .happychart-labels_dash p{
     color: var(--Neutral-Black-100, #000);
 /* Subtitles/S2 */
 font-family: Montserrat;

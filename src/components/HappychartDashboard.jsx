@@ -6,7 +6,7 @@ import { getFormattedDate } from './../js/functions.js';
 import './components.css';
 
 
-const Happycharts = () => {
+const HappychartDashboard = () => {
     const [emotions, setEmotions] = useState(null);
 
     useEffect(() => {
@@ -138,12 +138,12 @@ const Happycharts = () => {
             <div className="happychart">
                 <h6 className='entrada'>Entrada</h6>
                 <h6 className='salida'>Salida</h6>
-                <h6 className='total'>Total</h6>
+                
                 <Doughnut data={data1} options={options1} />
                 <Doughnut data={data2} options={options1} />
-                <Doughnut data={datatotal} options={options1} />
+                
             </div>
-            <div className="happychart-labels">
+            <div className="happychart-labels_dash">
                 <div className='uno'>
                     <div className='rectangle1'></div><p>Alegria</p></div>
                 <div className='uno'>
@@ -158,4 +158,4 @@ const Happycharts = () => {
     );
 }
 
-export default Happycharts;
+export default  HappychartDashboard;

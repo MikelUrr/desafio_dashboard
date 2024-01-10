@@ -18,6 +18,10 @@ const Userbar = () => {
 console.log(data);
             if (response.status === 200) {
                 setUserData(data);
+            } else if (response.status === 401) {
+                navigate("/");
+            
+
             }
         }
 const getTime=()=>{ 
