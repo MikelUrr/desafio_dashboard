@@ -1,0 +1,160 @@
+/* Components */
+
+/* Navbar css */
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--gray-gray-5, rgba(162, 161, 168, 0.05));
+    width: 280px;
+    height: 1536px;
+}
+
+.logo {
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.menu {
+    padding-top: 50px;
+    padding-left: 30px;
+
+}
+
+ul {
+    list-style: none;
+}
+
+li img {
+    width: 24px;
+    height: 24px;
+}
+
+li {
+    color: var(--Neutral-Black-100, #000);
+    /* Subtitles/S1 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    gap: 10px
+}
+
+li:hover {
+    color: var(--Primary-500, #5F6AFF);
+}
+
+li.active {
+    border-radius: 0px 10px 10px 0px;
+    background: var(--Secondary-60, #CCCFFF);
+    color: var(--Secondary-100, #5F6AFF);
+}
+
+/* Navbar css End*/
+
+/* Userbar css */
+
+.userbar__container {
+    display: flex;
+    position:fixed;
+    left: 280px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 0px;
+    width: calc(100% - 280px);
+
+}
+
+.userbar__container--greetings {
+    padding: 10px;
+
+}
+
+.userbar__container--user {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap:7px;
+    align-items: center;
+    
+}
+
+.userbar__container--name {
+    color: var(--Neutral-Black-100, #000);
+
+    /* Headlines/H6 */
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+
+.userbar__container--greeting{
+    color: var(--Secondary-140, #0012FF);
+/* Body-2 Regular */
+font-family: Lexend;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px; /* 157.143% */
+}
+
+.p-line1{
+    color: var(--Secondary-140, #0012FF);
+/* Subtitles/S1 */
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.15px;
+}
+
+.p-line2{
+    color: var(--Secondary-140, #0012FF);
+
+/* Caption Regular */
+font-family: Lexend;
+font-size: 12px;
+font-style: normal;
+font-weight: 300;
+line-height: 18px; /* 150% */
+}
+
+.userbar-notification{
+    display: flex;
+width: 50px;
+height: 50px;
+padding: 20px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--Secondary-60, #CCCFFF);
+
+}
+
+.userbar__container--user--item{
+    display: flex  ;
+    flex-direction: row;
+    gap: 4px;
+    border-radius: 8px;
+border: 1px solid var(--Secondary-60, #CCCFFF);
+margin-left: 30px;
+}
+.userbar__container--user--item img{
+    width: 45.5px;
+height: 40.444px;
+}

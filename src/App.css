@@ -164,6 +164,17 @@ font-weight: 500;
 line-height: normal;
 letter-spacing: 0.1px;
 }
+.form-input:focus {
+  outline: none; 
+  background: transparent;
+  
+}
+.login-password:focus {
+  outline: none; 
+  background: transparent;
+  
+}
+
 
 .form-button{
   
@@ -201,3 +212,6 @@ text-transform: uppercase;
   align-items: center;
   gap: 10px;
 }
+
+/* Login Page css END*/
+

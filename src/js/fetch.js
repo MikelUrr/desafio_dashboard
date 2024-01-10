@@ -3,20 +3,24 @@
 const VITE_BACKEND_HOST =
     import.meta.env.VITE_BACKEND_HOST || "http://localhost:3006";
 
-const loginApi = async (email, password) => {
+const loginApi = async (formData) => {
     try {
-        console.log(email, password)
         const response = await fetch(`${VITE_BACKEND_HOST}/user/login`, {
             method: "POST",
             credentials: "include",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify(formData),
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
+
+            if (data.result.userType === "user") {
+
+                return new Response(null, { status: 403 });
+            }
+
             return { response, data };
         } else {
             throw new Error(
@@ -28,5 +32,27 @@ const loginApi = async (email, password) => {
         throw error;
     }
 };
+const fetchUserData = async () => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/user/info`, {
+            method: "GET",
+            credentials: "include",  
+        });
 
-export { loginApi };
+        console.log("hola", response);
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            return { response, data };
+        } else {
+            console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+            return [response, null];
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        return [null, null];
+    }
+};
+
+export { loginApi, fetchUserData };

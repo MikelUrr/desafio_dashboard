@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {loginApi} from './../js/fetch.js';
 
 
 const Login = () => {
@@ -19,6 +19,17 @@ const Login = () => {
     const handleTogglePassword = () => {
         setPasswordVisible(!passwordVisible);
     }
+    const handleLogin = async (e) => {
+        e.preventDefault();
+       const response= await loginApi(formData);
+       if(response.status===403){
+           alert("Usuario no autorizado");
+       }else{
+              navigate('/dashboard');
+       }
+
+    }
+
 
     return (
         <div className="login-container">
@@ -50,9 +61,10 @@ const Login = () => {
  </p>
             </div> */}
             <div className="login-form">
-                <form className="form-login">
+                <form className="form-login"  onSubmit={handleLogin}>
                     <div className="login-form-group">
-                        <input type="text" placeholder="Usuario" name="usuario" required className="form-input" />
+                        <input type="text" placeholder="Usuario" name="usuario" required className="form-input"  value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                         <img src={user} alt="Icono de usuario" width={24} height={24} />
                     </div>
                     <div className='password-container'>
@@ -77,7 +89,7 @@ const Login = () => {
                         <p className="forgot-password">Forgot Password?</p>
                     </div>
                     <div className="login-form-group-button">
-                        <button type="submit" className="form-button">Iniciar sesión</button>
+                        <button type="submit" className="form-button"onClick={handleLogin}>Iniciar sesión</button>
                     </div>
                 </form>
             </div>
