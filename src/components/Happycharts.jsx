@@ -12,7 +12,7 @@ const Happycharts = () => {
     useEffect(() => {
         const fetchemotions = async () => {
             const { response, data } = await fetchEmotionData();
-            console.log("1", data.entradaSalidaTotals.Entrada);
+            console.log("1", data);
             if (response.status === 200) {
                 setEmotions(data);
             }
@@ -20,9 +20,10 @@ const Happycharts = () => {
         fetchemotions();
     }, []);
 
-    const dataEntrada = emotions ? emotions.entradaSalidaTotals.Entrada : 0;
-    const dataSalida = emotions ? emotions.entradaSalidaTotals.Salida : 0;
-    const dataTotal = emotions ? emotions.totalTotals : 0;
+    const dataEntrada = emotions ? emotions.porcentajesEntrada : 0;
+    const dataSalida = emotions ? emotions.porcentajesSalida : 0;
+    const dataTotal = emotions ? emotions.porcentajesTotal : 0;
+
     const sortedDataEntrada = Object.fromEntries(
         Object.entries(dataEntrada).sort(([a], [b]) => a.localeCompare(b))
     );
@@ -40,59 +41,37 @@ const Happycharts = () => {
 
     ChartJS.register(ArcElement, Tooltip, Legend);
 
+    const emotionColors = {
+        'alegria': '#EB5757',
+        'ira': '#000',
+        'miedo': '#FF9F1C',
+        'tristeza': '#5F6AFF',
+    };
+    
     const datatotal = {
         labels: totalLabel,
         datasets: [{
             data: totalData,
-            backgroundColor: [
-                '#EB5757',
-                '#000',
-                '#FF9F1C',
-                '#5F6AFF'
-            ],
-            hoverBackgroundColor: [
-                '#EB5757',
-                '#000',
-                '#FF9F1C',
-                '#5F6AFF'
-            ]
+            backgroundColor: totalLabel.map(emotion => emotionColors[emotion.toLowerCase()]),
+            hoverBackgroundColor: totalLabel.map(emotion => emotionColors[emotion.toLowerCase()]),
         }]
     };
-
+    
     const data1 = {
         labels: Object.keys(sortedDataEntrada),
         datasets: [{
             data: Object.values(sortedDataEntrada),
-            backgroundColor: [
-                '#EB5757',
-                '#000',
-                '#FF9F1C',
-                '#5F6AFF'
-            ],
-            hoverBackgroundColor: [
-                '#EB5757',
-                '#000',
-                '#FF9F1C',
-                '#5F6AFF'
-            ]
+            backgroundColor: Object.keys(sortedDataEntrada).map(emotion => emotionColors[emotion.toLowerCase()]),
+            hoverBackgroundColor: Object.keys(sortedDataEntrada).map(emotion => emotionColors[emotion.toLowerCase()]),
         }]
     };
+    
     const data2 = {
         labels: Object.keys(sortedDataSalida),
         datasets: [{
             data: Object.values(sortedDataSalida),
-            backgroundColor: [
-                '#FF9F1C',
-                '#5F6AFF',
-                '#000',
-                '#EB5757'
-            ],
-            hoverBackgroundColor: [
-                '#FF9F1C',
-                '#5F6AFF',
-                '#000',
-                '#EB5757'
-            ]
+            backgroundColor: Object.keys(sortedDataSalida).map(emotion => emotionColors[emotion.toLowerCase()]),
+            hoverBackgroundColor: Object.keys(sortedDataSalida).map(emotion => emotionColors[emotion.toLowerCase()]),
         }]
     };
     const options1 = {
@@ -139,21 +118,25 @@ const Happycharts = () => {
                 <h6 className='entrada'>Entrada</h6>
                 <h6 className='salida'>Salida</h6>
                 <h6 className='total'>Total</h6>
-                <Doughnut data={data1} options={options1} />
-                <Doughnut data={data2} options={options1} />
-                <Doughnut data={datatotal} options={options1} />
+                <div className='chartDoughnut'>
+                <div className='donut1'>
+                <Doughnut data={data1} options={options1} /></div>
+                <div className='donut2'>
+                <Doughnut data={data2} options={options1} /></div>
+                <div className='donut3'>
+                <Doughnut data={datatotal} options={options1} /></div></div>
             </div>
             <div className="happychart-labels">
                 <div className='uno'>
-                    <div className='rectangle1'></div><p>Alegria</p></div>
+                    <div className='rectangle1'></div><p>Miedo</p></div>
                 <div className='uno'>
-                    <div className='rectangle2'></div><p>Ira</p></div>
+                    <div className='rectangle2'></div><p>Tristeza</p></div>
                 <div className='uno'>
-                    <div className='rectangle3'></div><p>Miedo</p></div>
+                    <div className='rectangle3'></div><p>Ira</p></div>
                 <div className='uno'>
-                    <div className='rectangle4'></div><p>Tristeza</p>
+                    <div className='rectangle4'></div><p>Alegria</p>
                 </div>
-            </div>
+            </div> 
         </div>
     );
 }

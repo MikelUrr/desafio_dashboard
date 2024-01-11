@@ -53,9 +53,9 @@ const getTime=()=>{
                 <div className="userbar__container--user--item">
                     <img src="/woman.png" alt="user" />
                     <div className="userbar__container--user--content">
-
+                    <p className="p-line2" >{userData.rol}</p>
                         <p className="p-line1">{userData.name} {userData.surname}</p>
-                        <p className="p-line2" >Hi, {userData.rol}</p>
+                        
                     </div>
                 </div>
             </div>

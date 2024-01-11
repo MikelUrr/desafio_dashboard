@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body, :root {
+  all: initial;
+}
 
 /* Global css END*/
 

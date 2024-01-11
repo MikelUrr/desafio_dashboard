@@ -5,7 +5,7 @@ import { logoutApi } from "./../js/fetch.js";
 import { useNavigate, useLocation } from "react-router-dom";
 const Navbar = () => {
   const menuItems = [
-    { icon: 'dashboard.svg', name: 'Dashboard', path: '/dashboard' },
+    { icon: 'dashboard.svg', name: 'Inicio', path: '/dashboard' },
     { icon: 'personal.svg', name: 'Analiticas', path: '/analiticas' },
     { icon: 'departamentos.svg', name: 'Departamentos' },
     { icon: 'asistencia.svg', name: 'Asistencia' },
@@ -39,11 +39,11 @@ const Navbar = () => {
     }
   }, [location.pathname, menuItems]);
   return (
-    <div className="navbar">
+    <div className="navbarizq">
       <div className="logo">
         <img src="/logonavbar.svg" alt="logo" />
       </div>
-      <div className="menu">
+      <div className="menus">
         <ul>
           {menuItems.map((item, index) => (
             <li
