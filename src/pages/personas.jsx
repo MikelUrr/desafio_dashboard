@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PaginatedTable from './../components/PaginatedTable';
 import Navbar from './../components/Navbar';
 import Userbar from './../components/Userbar';
+import { fetchTableData } from './../js/fetch.js';
 
 const Personas = () => {
+const [userData, setUserData] = useState(null);
+
+useEffect(() => {
+    const fetchUserData = async () => {
+        const {response,data} = await fetchTableData();
+
+        if (response.status === 200) {
+            setUserData(data);
+        }
+    }
+    fetchUserData();
+}, []);
+
+
+
+
+
   const columns = [
     // Define las columnas de tu tabla
     { Header: 'Nombre', accessor: 'name' },
     { Header: 'Apellidos', accessor: 'surname' },
-    { Header: 'Rol', accessor: 'role' },
-    { Header: 'Hora de fichaje', accessor: 'time' },
+    { Header: 'Rol', accessor: 'rol' },
+    { Header: 'Hora de Entrada', accessor: 'horaEntrada' },
+    { Header: 'Hora de Entrada', accessor: 'horaSalida' },
     { Header: 'Estado', accessor: 'status' },
   ];
 
-  const data = [
+
+/*   const data = [
     // Agrega tus datos aquí
     { name: "Aitor", surname: "Etxebarria", role: "Developer", time: "08:00", status: "On" },
     { name: "Maite", surname: "González", role: "Analyst", time: "09:30", status: "On" },
@@ -31,13 +51,13 @@ const Personas = () => {
     { name: "Nerea", surname: "López", role: "Manager", time: "--:--", status: "Off" },
     { name: "Ekiñe", surname: "Soto", role: "HR Manager", time: "07:30", status: "On" },
     
-  ];
+  ]; */
 
   return (
     <div>
       <Navbar />
           <Userbar />
-      <PaginatedTable columns={columns} data={data} />
+       <PaginatedTable columns={columns} data={userData} /> 
     </div>
   );
 };

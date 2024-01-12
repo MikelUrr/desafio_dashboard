@@ -19,12 +19,12 @@ const Dashboard = () => {
     
     const data = [
         // Agrega tus datos aquí
-        { name: "Aitor", time: "08:00", status: "On" },
-        { name: "Maite", time: "09:30", status: "On" },
-        { name: "Iñaki", time: "--:--", status: "Off" },
-        { name: "Miren", time: "07:55", status: "On" },
-        { name: "Eneko", time: "--:--", status: "Off" },
-        /* 
+        { name: "Aitor Ortega", time: "08:00", status: "On" },
+        { name: "Maite Ortega", time: "09:30", status: "On" },
+        { name: "Iñaki Ortega", time: "--:--", status: "Off" },
+        { name: "Miren Ortega", time: "07:55", status: "On" },/* 
+        { name: "Eneko Ortega", time: "--:--", status: "Off" },
+        
         { name: "Ane", time: "08:30", status: "On" },
         { name: "Unai",  time: "--:--", status: "Off" },
         { name: "Oihane",  time: "08:15", status: "On" },
@@ -44,9 +44,9 @@ const Dashboard = () => {
         <Userbar />
        < HappychartDashboard />
         <Calendario />
-        <div className="table-resumen">
+        
         <SimpleTable columns={columns} data={data} />
-            </div>
+            
     </>
 
     );

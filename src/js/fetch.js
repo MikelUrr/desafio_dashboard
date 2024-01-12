@@ -104,4 +104,28 @@ const fetchEmotionData = async () => {
     }
 };
 
-export  { loginApi, fetchUserData, logoutApi, fetchEmotionData};
+const fetchTableData = async () => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/time/today`, {
+            method: "GET",
+            credentials: "include",  
+        });
+
+       
+
+        if (response.ok) {
+            const data = await response.json();
+      
+            console.log("hola", data);
+            return { response, data };
+        } else {
+            console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+            return [response, null];
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        return [null, null];
+    }
+};
+
+export  { loginApi, fetchUserData, logoutApi, fetchEmotionData, fetchTableData};

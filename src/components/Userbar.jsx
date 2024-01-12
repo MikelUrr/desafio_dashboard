@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./components.css";
 import { fetchUserData } from "./../js/fetch.js";
 import {getDaytime} from "../js/functions.js";
+import { useNavigate } from "react-router-dom";
 
 
 const Userbar = () => {
     const [userData, setUserData] = useState(null);
     const [daytime, setDaytime] = useState(null);
 
-
+const navigate = useNavigate();
 
 
 
@@ -30,7 +31,7 @@ const getTime=()=>{
 }
         getTime();
         fetchData();
-    }, []);
+    }, [navigate]);
 
   
 
