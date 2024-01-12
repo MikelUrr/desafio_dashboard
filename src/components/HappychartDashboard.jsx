@@ -107,31 +107,32 @@ const HappychartDashboard = () => {
 
     const ayer = getFormattedDate();
     return (
-        <div className="happychart-container">
+        <div className="happychart-container-dash">
             <div className="happychart-title">
                 <h2>Happiness Index</h2>
                 <h3>{ayer}</h3>
 
             </div>
-            <div className="happychart">
-                <h6 className='entrada'>Entrada</h6>
-                <h6 className='salida'>Salida</h6>
-                
+            <div className="happychart-dash">
+                <h6 className='entrada-dash'>Entrada</h6>
+                <h6 className='salida-dash'>Salida</h6>
+                <div className='dashboardchart'>
                 <Doughnut data={data1} options={options1} />
                 <Doughnut data={data2} options={options1} />
-                
-            </div>
-            <div className="happychart-labels_dash">
+                <div className="happychart-labels_dash">
             <div className='uno'>
-                    <div className='rectangle1'></div><p>Miedo</p></div>
+                    <div className='rectangle1'></div><p className='leyenda'>Miedo</p></div>
                 <div className='uno'>
-                    <div className='rectangle2'></div><p>Tristeza</p></div>
+                    <div className='rectangle2'></div><p className='leyenda'>Tristeza</p></div>
                 <div className='uno'>
-                    <div className='rectangle3'></div><p>Ira</p></div>
+                    <div className='rectangle3'></div><p className='leyenda'>Ira</p></div>
                 <div className='uno'>
-                    <div className='rectangle4'></div><p>Alegria</p>
+                    <div className='rectangle4'></div><p className='leyenda'>Alegria</p>
                 </div>
             </div>
+                </div>
+            </div>
+           
         </div>
     );
 }

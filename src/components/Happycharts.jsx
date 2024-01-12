@@ -127,14 +127,14 @@ const Happycharts = () => {
                 <Doughnut data={datatotal} options={options1} /></div></div>
             </div>
             <div className="happychart-labels">
+            <div className='uno'>
+                    <div className='rectangle1'></div><p className='leyenda'>Miedo</p></div>
                 <div className='uno'>
-                    <div className='rectangle1'></div><p>Miedo</p></div>
+                    <div className='rectangle2'></div><p className='leyenda'>Tristeza</p></div>
                 <div className='uno'>
-                    <div className='rectangle2'></div><p>Tristeza</p></div>
+                    <div className='rectangle3'></div><p className='leyenda'>Ira</p></div>
                 <div className='uno'>
-                    <div className='rectangle3'></div><p>Ira</p></div>
-                <div className='uno'>
-                    <div className='rectangle4'></div><p>Alegria</p>
+                    <div className='rectangle4'></div><p className='leyenda'>Alegria</p>
                 </div>
             </div> 
         </div>
