@@ -19,7 +19,7 @@ const ComparativaItem = ({ porcentaje, emocion }) => {
         </div>
       </div>
       <div className="comparativa-item__text">
-        <p>Variación diaria <b>{emocion}</b></p>
+        <p>Variación diaria de la <b>{emocion}</b></p>
       </div>
     </div>
   );

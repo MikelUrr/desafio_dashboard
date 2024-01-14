@@ -1,9 +1,53 @@
 import React, { useMemo, useState } from 'react';
 import { useTable, usePagination, useFilters } from 'react-table';
-
-const PaginatedTable = ({ columns, data }) => {
+import * as XLSX from 'xlsx';
+const PaginatedTable = ({ columns, data,typeData }) => {
   const [filterInput, setFilterInput] = useState('');
 
+  
+  const downloadDataAsExcel = () => {
+    try {
+      // Crear una copia profunda de los datos para evitar modificar el estado original
+      const cleanedData = JSON.parse(JSON.stringify(data));
+  
+      // Definir los campos que deseas excluir (en este caso, el campo 'userId')
+      const excludedFields = ['userId',"_id","password","userActive"];
+  
+      // Iterar sobre los datos y eliminar campos excluidos
+      cleanedData.forEach(item => {
+        excludedFields.forEach(excludedField => {
+          delete item[excludedField];
+        });
+  
+        // Además, puedes realizar otras limpiezas específicas según tus necesidades
+        // Por ejemplo, reemplazar saltos de línea con espacio en blanco
+        Object.keys(item).forEach(key => {
+          if (typeof item[key] === 'string') {
+            item[key] = item[key].replace(/\n/g, ' ');
+          }
+        });
+      });
+  
+      const workbook = XLSX.utils.book_new();
+      const worksheet = XLSX.utils.json_to_sheet(cleanedData);
+  
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'InfoTrabajadores');
+      const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      const dataBlob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = URL.createObjectURL(dataBlob);
+      const timestamp = Date.now();
+      const fileName = `trabajadoresinfo_${timestamp}.xlsx`
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', fileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading data as Excel:', error);
+    }
+  
+  };
   const {
     getTableProps,
     getTableBodyProps,
@@ -47,7 +91,11 @@ const PaginatedTable = ({ columns, data }) => {
               gotoPage(0); // Ir a la primera página cuando se aplica o borra el filtro
             }}
           />
+       
         </div>
+        <button className="download-button" onClick={downloadDataAsExcel}>
+    Download Excel
+  </button>
       </div>
 
       <table {...getTableProps()} className="table">
@@ -112,7 +160,7 @@ const PaginatedTable = ({ columns, data }) => {
                 borderRadius:pageIndex === index ? '8px' : '0',
                 backgroundColor: pageIndex === index ? '#0012FF' : 'transparent',
                 color: pageIndex === index ? '#fff' : '#16151C',
-                width: pageIndex === index ? '25px' : 'auto',
+                width: pageIndex === index ? '35px' : 'auto',
               }}
             >
               {index + 1}

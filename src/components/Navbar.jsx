@@ -7,8 +7,8 @@ const Navbar = () => {
   const menuItems = [
     { icon: 'dashboard.svg', name: 'Inicio', path: '/dashboard' },
     { icon: 'personal.svg', name: 'Analiticas', path: '/analiticas' },
-    { icon: 'departamentos.svg', name: 'Departamentos' },
-    { icon: 'asistencia.svg', name: 'Asistencia' },
+    { icon: 'departamentos.svg', name: 'Asistencia' , path: '/personas' },
+    { icon: 'asistencia.svg', name: 'Empleados', path: '/trabajadores'  },
     { icon: 'vacaciones.svg', name: 'Vacaciones' },
     { icon: 'jobs.svg', name: 'Jobs' },
     { icon: 'candidates.svg', name: 'Candidates' },

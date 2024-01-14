@@ -309,8 +309,8 @@ letter-spacing: 0.15px;
     left: 290px;
     flex-direction: column;
     justify-content: space-between;
-    width: 63%;
-    top: 100px;
+    width: 66%;
+    top: 315px;
     border-radius: 10px;
     margin-left: 8px;
     
@@ -442,51 +442,59 @@ height: 270.131px;
     position: absolute;
     width: 84%;
 }
-
-.comparativa-item{
-    width: 250px;
-height: 115px;
-flex-shrink: 0;
-border-radius: 12px;
-border: 1px solid var(--Secondary-60, #CCCFFF);
-background: var(--Shape-Card, #FFF);
-display: flex  ;
-flex-direction: column;
-
+.comparativa-container-dash {
+    display: flex;
+   
+    flex-direction: row;
+   gap:140px;
+    align-items: center;
+    top: 105px;
+    left: 295px;
+    position: absolute;
+   
 }
 
-.comparativa-item__title{
-    display: flex  ;
+.comparativa-item {
+    width: 18vw; /* El 20% del ancho de la ventana */
+    height: 8.25vw; /* El 20% del ancho de la ventana */
+    flex-shrink: 0;
+    border-radius: 2vw; /* 2% del ancho de la ventana para el radio de borde */
+    border: 1px solid var(--Secondary-60, #CCCFFF);
+    background: var(--Shape-Card, #FFF);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comparativa-item__title {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 13px;
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-.comparativa-item__title h2{
+    margin-top: 1.3vw; /* Ajustado en función de la pantalla */
+    margin-left: 1.47vw; /* Ajustado en función de la pantalla */
+    margin-right: 1.47vw; /* Ajustado en función de la pantalla */
+  }
+  
+  .comparativa-item__title h2 {
     color: var(--Neutral-Black-100, #000);
-    /* Headlines/H6 */
     font-family: Montserrat;
-    font-size: 20px;
+    font-size: 1.39vw; /* Ajustado en función de la pantalla */
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.15px;
-}
-.comparativa-item__text p{
+  }
+  
+  .comparativa-item__text p {
     color: var(--Neutral-Black-60, #666);
-    /* Body/P2 */
     font-family: Open Sans;
-    font-size: 14px;
+    font-size: 0.97vw; /* Ajustado en función de la pantalla */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.25px;
-    margin-left: 24px;
-    margin-top: 9px;
-}
-
+    margin-left: 1.47vw; /* Ajustado en función de la pantalla */
+    margin-top: 0.9vw; /* Ajustado en función de la pantalla */
+  }
 /* Comparativas css End*/
 
 /* cajita container css */
@@ -731,9 +739,9 @@ letter-spacing: 0.5px;
 }
 .Simpletable-container{
     position: absolute; 
-    left: 300px;
-    top: 605px;
-    width: 63%;
+    left: 295px;
+    top: 785px;
+    width: 66%;
     height: auto;
     flex-shrink: 0;
     border-radius: 10px;
@@ -761,7 +769,7 @@ letter-spacing: 0.15
 display: flex;
 flex-direction: row;
 align-items: center;
-gap:1030px
+gap:1090px
 
 }
 .simpletable-button{
@@ -788,20 +796,121 @@ background-color: transparent;
 
 /* calendario container css */
 
-.calendario {
+.calendar {
     position: absolute; 
-    right: 30px;
+    left: 80%;
     top: 100px;
-   
-    height: auto;
+   display: flex;
+    flex-direction: column;
+    height: 88.5%;
     flex-shrink: 0;
     border-radius: 10px;
     border: 1px solid var(--Secondary-60, #CCCFFF);
     
-    display: flex;
 }
-.calendario img {
-    width: 414px;
-    height: 882px;
-    flex-shrink: 0;
+
+.calendar h2 {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: var(--Neutral-Black-100, #000);
+    /* Headlines/H6 */
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+.agenda{
+    border-top: #CCCFFF 1px solid;
+}
+.agenda h3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: var(--Secondary-140, #0012FF);
+    /* Subtitles/S2 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+.agenda-container{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+
+}
+.agenda-item{
+    display: flex;
+    flex-direction: row;
+gap:40px;
+}
+
+.agenda-item-text{
+    border-left: 1px solid #5F6AFF; /* Ajusta el color y estilo de la línea de separación según tus preferencias */
+    
+    margin-top: 10px; /* Ajusta el espacio entre la línea y el elemento anterior según tus preferencias */
+    padding-left: 15px;
+}
+
+.agenda-item h4 {
+    padding-left: 20px;
+    padding-top: 20px;
+    color: var(--Neutral-Black-100, #000);
+
+/* Subtitles/S2 */
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.1px;
+}
+.agenda-item-text-title{
+    color: var(--Neutral-Black-100, #000);
+
+/* Body/P1 */
+font-family: Open Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.5px;
+}
+
+.agenda-item-text-content{
+    color: var(--Neutral-Black-60, #666);
+
+/* Subtitles/S1 */
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.15px;
+
+}
+
+/*para cambiar estilos de graficos */
+
+.bar-chart-horizontal{
+    width: 100%;
+    height: 100%;
+}
+
+.bar-chart-horizontal canvas{
+aspect-ratio: auto 800 / 230;
+margin: 0;
+padding: 0;
+max-width: 33333.652px;
+max-height: 288.131px;
+box-sizing: border-box;
+width: 1000px;
+height: 288px;
+background-color: none;
 }

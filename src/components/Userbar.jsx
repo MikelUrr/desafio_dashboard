@@ -1,44 +1,50 @@
 import React, { useEffect, useState } from "react";
 import "./components.css";
 import { fetchUserData } from "./../js/fetch.js";
-import {getDaytime} from "../js/functions.js";
+import { getDaytime } from "../js/functions.js";
 import { useNavigate } from "react-router-dom";
 
-
 const Userbar = () => {
-    const [userData, setUserData] = useState(null);
-    const [daytime, setDaytime] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [daytime, setDaytime] = useState(null);
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
+  useEffect(() => {
+    const fetchData = async () => {
+      const { response, data } = await fetchUserData();
+      console.log(data);
 
+      if (response.status === 200) {
+        setUserData(data);
+      } else if (response.status === 401) {
+        navigate("/");
+      }
+    };
 
+    const getTime = () => {
+      const time = getDaytime();
+      setDaytime(time);
+    };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const {response,data} = await fetchUserData();
-console.log(data);
-            if (response.status === 200) {
-                setUserData(data);
-            } else if (response.status === 401) {
-                navigate("/");
-            
+    const timeoutId = setTimeout(() => {
+      if (!userData) {
+        // Redirigir al usuario al login después de 10 segundos si los datos aún no se han cargado
+        navigate("/");
+      }
+    }, 10000); // 10 segundos
 
-            }
-        }
-const getTime=()=>{ 
-    const time = getDaytime();
-    setDaytime(time);
-}
-        getTime();
-        fetchData();
-    }, [navigate]);
+    getTime();
+    fetchData();
 
-  
+    return () => {
+      // Limpiar el temporizador al desmontar el componente
+      clearTimeout(timeoutId);
+    };
+  }, [navigate, userData]);
 
   if (!userData) {
-    
     return <div>Cargando...</div>;
-    }
+  }
 
     return (
 

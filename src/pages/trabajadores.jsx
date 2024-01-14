@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import PaginatedTable from './../components/PaginatedTable';
 import Navbar from './../components/Navbar';
 import Userbar from './../components/Userbar';
-import { fetchTableData } from './../js/fetch.js';
+import { fetchAllUsersData } from './../js/fetch.js';
 
-const Personas = () => {
+const Trabajadores = () => {
 const [userData, setUserData] = useState(null);
 const [loading, setLoading] = useState(true);
 
 useEffect(() => {
   const fetchUserData = async () => {
     try {
-      const { response, data } = await fetchTableData();
+      const { response, data } = await fetchAllUsersData();
 
       if (response.status === 200) {
         setUserData(data);
@@ -29,14 +29,15 @@ useEffect(() => {
 
 
 
-  const columns = [
-    // Define las columnas de tu tabla
+const columns = [
     { Header: 'Nombre', accessor: 'name' },
     { Header: 'Apellidos', accessor: 'surname' },
     { Header: 'Rol', accessor: 'rol' },
-    { Header: 'Hora de Entrada', accessor: 'horaEntrada' },
-    { Header: 'Hora de Salida', accessor: 'horaSalida' },
-    { Header: 'Estado', accessor: 'status' }
+    { Header: 'Departamento', accessor: 'department' },
+    { Header: 'Educación', accessor: 'education' },
+    { Header: 'Salario', accessor: 'salary' },
+    { Header: 'Tipo de Usuario', accessor: 'userType' }
+   
   ];
 
 
@@ -69,11 +70,11 @@ useEffect(() => {
         <p>Cargando datos...</p>
       ) : (
         
-        <PaginatedTable columns={columns} data={userData} />
+        <PaginatedTable columns={columns} data={userData} typeData={"Empleado"}/>
       )}
     </div>
   );
 };
 
 
-export default Personas;
+export default Trabajadores;

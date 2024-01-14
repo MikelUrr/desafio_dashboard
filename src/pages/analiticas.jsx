@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Userbar from "../components/Userbar";
 import Happycharts from "../components/Happycharts";
 import Comparativa from "../components/comparativa";
-import GraficaFoto from "../components/GraficaFoto";
+import HalfPieCharts from "../components/HalfPieCharts";
 
 const Analiticas = () => {
 
@@ -15,7 +15,8 @@ const Analiticas = () => {
           <Userbar />
           <Happycharts />
           <Comparativa />
-          <GraficaFoto />
+         
+         <HalfPieCharts />
         </div>
       );
       
