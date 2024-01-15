@@ -152,4 +152,48 @@ const fetchAllUsersData = async () => {
     }
 };
 
-export  { loginApi, fetchUserData, logoutApi, fetchEmotionData, fetchTableData, fetchAllUsersData};
+const fetchEmotioninfo = async () => {
+    try {
+        const response = await fetch(`https://aitormentxaka.pythonanywhere.com/puntuaciones-encuestas`, {
+            method: "GET",
+            
+        });
+
+        // Log specific information from the response for debugging
+        console.log("Response Status:", response.status);
+        console.log("Response Headers:", response.headers);
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("Data:", data);
+            return { response, data };
+        } else {
+            console.error(`Error in request: ${response.status} - ${response.statusText}`);
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error in request:", error.message);
+        return { response: null, data: null };
+    }
+}
+ const fetchComplexDataApi = async () => {
+    try {
+        const response = await fetch(`https://egoup.pythonanywhere.com/emociones-complejas`, {
+            method: "GET",
+           
+        });
+        if (response.ok) {
+            const data = await response.json();
+            return { response, data };
+        } else {
+            throw new Error(
+                `ERROR en la solicitud: ${response.status} - ${response.statusText}`
+            );
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+}
+
+export  { loginApi, fetchUserData, logoutApi, fetchEmotionData, fetchTableData, fetchAllUsersData, fetchEmotioninfo, fetchComplexDataApi};

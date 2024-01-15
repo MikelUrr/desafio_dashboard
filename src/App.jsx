@@ -10,6 +10,7 @@ import Personas from './pages/personas';
 import HalfPieCharts from './components/HalfPieCharts';
 import BarChartHorizontal from './components/BarChartHorizontal';
 import Trabajadores from './pages/trabajadores';
+import EmocionesComplejas from './pages/emocionesComplejas';
 
 function App() {
   
@@ -25,7 +26,7 @@ function App() {
         <Route path='/analiticas' element={<Analiticas />} />
         <Route path='/personas' element={<Personas />} /> 
         <Route path='/trabajadores' element={<Trabajadores />} /> 
-        <Route path='/prueba' element={<BarChartHorizontal />} /> 
+        <Route path='/prueba' element={<EmocionesComplejas />} /> 
         <Route path='/a' element={<HalfPieCharts />} /> 
         <Route path='*' element={<div>404 Not found</div>}></Route>
       </Routes>

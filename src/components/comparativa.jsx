@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { fetchEmotionData } from './../js/fetch.js';
 
-// Aquí está el componente ComparativaItem que discutimos anteriormente
 const ComparativaItem = ({ porcentaje, emocion }) => {
-  const color = porcentaje > 0 ? '#27AE60' : '#EB5757';
-  const imagenSrc = porcentaje > 0 ? '/caret-up-fill.svg' : '/caret-down-fill.svg';
+  let color;
+  let imagenSrc;
+
+  if (['Miedo', 'Ira', 'Tristeza'].includes(emocion)) {
+    color = porcentaje > 0 ? '#EB5757' : '#27AE60';
+    imagenSrc = porcentaje > 0 ? '/caret-down-fill.svg' : '/caret-up-fill.svg';
+  } else if (emocion === 'Alegria') {
+    color = porcentaje > 0 ? '#27AE60' : '#EB5757';
+    imagenSrc = porcentaje > 0 ? '/caret-up-fill.svg' : '/caret-down-fill.svg';
+  } else {
+    // Default para otras emociones
+    color = porcentaje > 0 ? '#27AE60' : '#EB5757';
+    imagenSrc = porcentaje > 0 ? '/caret-up-fill.svg' : '/caret-down-fill.svg';
+  }
 
   const h2Style = {
     color: color,
@@ -24,6 +35,7 @@ const ComparativaItem = ({ porcentaje, emocion }) => {
     </div>
   );
 };
+
 
 const Comparativa = () => {
   const [emotions, setEmotions] = useState(null);
@@ -48,7 +60,11 @@ const Comparativa = () => {
   commonKeys.forEach(key => {
     const entradaValue = dataEntrada[key] || 0;
     const salidaValue = dataSalida[key] || 0;
+    if(entradaValue>=salidaValue){
     subtractedData[key] = entradaValue - salidaValue;
+    } else {
+      subtractedData[key] = salidaValue - entradaValue;
+    }
   });
 
   return (

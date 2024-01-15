@@ -31,7 +31,7 @@ const SimpleTable = ({ columns, data }) => {
     <div className="Simpletable-container">
       <div className='Simpletable-container-head'>  
           <h3 className='simpletable-label'>Asistencia</h3>
-          <button className='simpletable-button'onClick={handleClick}>Ver todos</button>
+          <button className='simpletable-button'onClick={handleClick}>+ VER TODO</button>
       </div>
 
       <table {...getTableProps()} className="table">

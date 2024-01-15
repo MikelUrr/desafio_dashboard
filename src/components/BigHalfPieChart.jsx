@@ -3,11 +3,11 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import "./graphics.css";
 
-const BigHalfpieChart = () => {
-
+const BigHalfpieChart = ({ data }) => {
+const datos=data;
     ChartJS.register(ArcElement, Tooltip, Legend);
-const data= 80;
-    const data2= 100-data
+
+    const data2= 100-datos
 
     const emotionColors = {
         'data': '#FF9F1C',
@@ -16,7 +16,7 @@ const data= 80;
 
     const data1 = {
         datasets: [{
-            data: [data, data2],
+            data: [datos, data2],
             backgroundColor: [
                 emotionColors['data'],
                 emotionColors['data2'],
@@ -50,7 +50,7 @@ const data= 80;
         <div className="big-halfpie-chart">
            
             <Doughnut data={data1} options={options} />
-            <h4>{data}%</h4>
+            <h4>{datos}%</h4>
         </div>
     );
 }

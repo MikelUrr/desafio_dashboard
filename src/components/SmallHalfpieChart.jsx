@@ -3,20 +3,20 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import "./graphics.css";
 
-const SmallHalfpieChart = () => {
-
+const SmallHalfpieChart = ({ data }) => {
     ChartJS.register(ArcElement, Tooltip, Legend);
-const data= 80;
-    const data2= 100-data
+    const { title, value } = data;
 
     const emotionColors = {
         'data': '#5F6AFF',
         'data2': '#CCCFFF',
     };
 
+    const data2 = 100 - value;
+
     const data1 = {
         datasets: [{
-            data: [data, data2],
+            data: [value, data2],
             backgroundColor: [
                 emotionColors['data'],
                 emotionColors['data2'],
@@ -42,14 +42,12 @@ const data= 80;
         responsive: true,
         cutout: 90,
     };
-    
-    
 
     return (
         <div className="small-halfpie-chart">
-            <h3>Title</h3>
+            <h3>{title}</h3>
             <Doughnut data={data1} options={options} />
-            <h4>{data}%</h4>
+            <h4>{value}%</h4>
         </div>
     );
 }

@@ -26,21 +26,21 @@ const Userbar = () => {
       setDaytime(time);
     };
 
-    const timeoutId = setTimeout(() => {
+    /* const timeoutId = setTimeout(() => {
       if (!userData) {
         // Redirigir al usuario al login después de 10 segundos si los datos aún no se han cargado
         navigate("/");
       }
     }, 10000); // 10 segundos
-
+ */
     getTime();
     fetchData();
 
-    return () => {
+/*     return () => {
       // Limpiar el temporizador al desmontar el componente
       clearTimeout(timeoutId);
-    };
-  }, [navigate, userData]);
+    }; */
+  }, []);
 
   if (!userData) {
     return <div>Cargando...</div>;
