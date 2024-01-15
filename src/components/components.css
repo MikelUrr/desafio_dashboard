@@ -592,6 +592,7 @@ letter-spacing: 0.15px;
     gap: 10px;
     border-radius: 10px;
     background: var(--Primary-500, #7152F3);
+    border: none;
 }
 table {
   width: 100%;
