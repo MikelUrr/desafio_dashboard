@@ -61,10 +61,11 @@ const ComparativaDash = () => {
       const entradaValue = dataEntrada[key] || 0;
       const salidaValue = dataSalida[key] || 0;
       if(entradaValue>=salidaValue){
-        subtractedData[key] = entradaValue - salidaValue;
-        } else {
-          subtractedData[key] = salidaValue - entradaValue;
-        }
+      subtractedData[key] = salidaValue-entradaValue;
+      } else {
+        subtractedData[key] =Math.abs(entradaValue - salidaValue);
+    
+      }
     });
   
     // Filtrar la última emoción

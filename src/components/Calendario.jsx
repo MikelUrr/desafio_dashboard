@@ -58,6 +58,14 @@ const Calendario = () => {
               <p className='agenda-item-text-content'>Revision de Contrato</p>
               </div>
                 </div>
+                <div className='agenda-item'>
+                <h4>20:00</h4>
+                <div className='agenda-item-text'>
+              <p className='agenda-item-text-title'>Reunión con el cliente</p>
+              <p className='agenda-item-text-content'>Revision de Contrato</p>
+              </div>
+                </div>
+              
           </div>
           {/* <button onClick={closeAgenda}>Cerrar Agenda</button> */}
         </div>

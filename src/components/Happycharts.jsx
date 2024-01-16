@@ -102,7 +102,8 @@ const Happycharts = () => {
                     }
                 }
             },
-
+            maintainAspectRatio: false,
+            
         }
     };
 

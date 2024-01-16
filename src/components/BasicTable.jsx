@@ -29,9 +29,9 @@ const BasicTable = ({ columns, data }) => {
       return (
         <div className='table-container'>
           <div>
-            <button className="download-button" onClick={downloadDataAsExcel}>
+            {/* <button className="download-button" onClick={downloadDataAsExcel}>
               Download Excel
-            </button>
+            </button> */}
           </div>
     
           <table className="table">

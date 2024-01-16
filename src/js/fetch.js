@@ -15,7 +15,7 @@ const loginApi = async (formData) => {
         });
         if (response.ok) {
             const data = await response.json();
-
+console.log("holaaaaaaaaaaaaaaa",data)
             if (data.result.userType === "user") {
 
                 return new Response(null, { status: 403 });

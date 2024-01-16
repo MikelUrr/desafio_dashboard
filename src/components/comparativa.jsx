@@ -30,7 +30,7 @@ const ComparativaItem = ({ porcentaje, emocion }) => {
         </div>
       </div>
       <div className="comparativa-item__text">
-        <p>Variación diaria de la <b>{emocion}</b></p>
+        <p>Variación diaria de <b>{emocion}</b></p>
       </div>
     </div>
   );
@@ -61,9 +61,10 @@ const Comparativa = () => {
     const entradaValue = dataEntrada[key] || 0;
     const salidaValue = dataSalida[key] || 0;
     if(entradaValue>=salidaValue){
-    subtractedData[key] = entradaValue - salidaValue;
+    subtractedData[key] = salidaValue-entradaValue;
     } else {
-      subtractedData[key] = salidaValue - entradaValue;
+      subtractedData[key] =Math.abs(entradaValue - salidaValue);
+  
     }
   });
 

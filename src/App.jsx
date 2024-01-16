@@ -26,7 +26,7 @@ function App() {
         <Route path='/analiticas' element={<Analiticas />} />
         <Route path='/personas' element={<Personas />} /> 
         <Route path='/trabajadores' element={<Trabajadores />} /> 
-        <Route path='/prueba' element={<EmocionesComplejas />} /> 
+        <Route path='/emociones' element={<EmocionesComplejas />} /> 
         <Route path='/a' element={<HalfPieCharts />} /> 
         <Route path='*' element={<div>404 Not found</div>}></Route>
       </Routes>
