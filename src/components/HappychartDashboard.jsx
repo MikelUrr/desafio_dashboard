@@ -40,12 +40,14 @@ const HappychartDashboard = () => {
 
     ChartJS.register(ArcElement, Tooltip, Legend);
 
-    const emotionColors = {
-        'alegria': '#EB5757',
-        'ira': '#000',
-        'miedo': '#FF9F1C',
+     const emotionColors = {
+        'alegria': '#FF9F1C',
+        'ira': '#EB5757',
+        'miedo': '#000',
         'tristeza': '#5F6AFF',
     };
+ 
+  
     
     const datatotal = {
         labels: totalLabel,
@@ -101,7 +103,7 @@ const HappychartDashboard = () => {
                     }
                 }
             },
-
+            maintainAspectRatio: false,
         }
     };
 

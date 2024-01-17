@@ -6,10 +6,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Navbar = () => {
   const menuItems = [
     { icon: 'dashboard.svg', name: 'Inicio', path: '/dashboard' },
-    { icon: 'departamentos.svg', name: 'Asistencia' , path: '/personas' },
-    { icon: 'personal.svg', name: 'Emoción Index', path: '/analiticas' },
-    { icon: 'asistencia.svg', name: 'Emoción Completa', path: '/emociones'  },
-    { icon: 'asistencia.svg', name: 'Personal', path: '/trabajadores'  },
+    { icon: 'compass.svg', name: 'Asistencia' , path: '/personas' },
+    { icon: 'happy.svg', name: 'Emoción Index', path: '/analiticas' },
+    { icon: 'chart_line.svg', name: 'Emoción Completa', path: '/emociones'  },
+    { icon: 'employees.svg', name: 'Personal', path: '/trabajadores'  },
     
   ];
   const [activeItem, setActiveItem] = useState(0);

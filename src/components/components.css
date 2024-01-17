@@ -399,7 +399,7 @@ height: 18.063px;
 flex-shrink: 0;
 border-radius: 4px;
 opacity: 0.75;
-background: var(--Primary-100, #FF9F1C);
+background: var(--Primary-100, #000);
 }
 .rectangle2{
     width: 18px;
@@ -415,7 +415,7 @@ height: 18.063px;
 flex-shrink: 0;
 border-radius: 4px;
 opacity: 0.7;
-background: var(--Neutral-Black-100, #000);
+background: var(--Neutral-Black-100, #EB5757);
 }
 .rectangle4{
     width: 18px;
@@ -423,7 +423,7 @@ height: 18.063px;
 flex-shrink: 0;
 border-radius: 4px;
 opacity: 0.75;
-background: var(--Ira, #EB5757);
+background: var(--Ira, #FF9F1C);
 }
 canvas {
     width: 270.652px;
