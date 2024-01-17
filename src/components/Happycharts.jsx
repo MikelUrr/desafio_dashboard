@@ -42,11 +42,12 @@ const Happycharts = () => {
     ChartJS.register(ArcElement, Tooltip, Legend);
 
     const emotionColors = {
-        'alegria': '#EB5757',
-        'ira': '#000',
-        'miedo': '#FF9F1C',
+        'alegria': '#FF9F1C',
+        'ira': '#EB5757',
+        'miedo': '#000',
         'tristeza': '#5F6AFF',
     };
+ 
     
     const datatotal = {
         labels: totalLabel,
@@ -111,7 +112,7 @@ const Happycharts = () => {
     return (
         <div className="happychart-container">
             <div className="happychart-title">
-                <h2>Happiness Index</h2>
+                <h2>Emotion Index</h2>
                 <h3>{ayer}</h3>
 
             </div>

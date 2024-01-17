@@ -6,8 +6,8 @@ const ComparativaItem = ({ porcentaje, emocion }) => {
   let imagenSrc;
 
   if (['Miedo', 'Ira', 'Tristeza'].includes(emocion)) {
-    color = porcentaje > 0 ? '#EB5757' : '#27AE60';
-    imagenSrc = porcentaje > 0 ? '/caret-down-fill.svg' : '/caret-up-fill.svg';
+    color = porcentaje < 0 ?   '#27AE60':'#EB5757';
+    imagenSrc = porcentaje < 0 ?  '/caret-up-fill.svg' : '/caret-down-fill.svg' ;
   } else if (emocion === 'Alegria') {
     color = porcentaje > 0 ? '#27AE60' : '#EB5757';
     imagenSrc = porcentaje > 0 ? '/caret-up-fill.svg' : '/caret-down-fill.svg';
@@ -63,7 +63,7 @@ const Comparativa = () => {
     if(entradaValue>=salidaValue){
     subtractedData[key] = salidaValue-entradaValue;
     } else {
-      subtractedData[key] =Math.abs(entradaValue - salidaValue);
+      subtractedData[key] =((entradaValue - salidaValue)*-1);
   
     }
   });

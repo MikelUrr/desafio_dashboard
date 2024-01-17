@@ -23,9 +23,11 @@ console.log("holaaaaaaaaaaaaaaa",data)
 
             return { response, data };
         } else {
+            return response;
             throw new Error(
                 `ERROR en la solicitud: ${response.status} - ${response.statusText}`
             );
+            
         }
     } catch (error) {
         console.error("Error en la solicitud:", error.message);

@@ -22,9 +22,13 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
        const response= await loginApi(formData);
+       console.log("zsdkgdsnfgkfdsgdfjgd",response);
        if(response.status===403){
            alert("Usuario no autorizado");
-       }else{
+       }else if(response.status===400){
+              alert("Usuario o contraseña incorrectos");
+       }
+       else{
               navigate('/dashboard');
        }
 

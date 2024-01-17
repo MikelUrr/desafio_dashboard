@@ -111,7 +111,7 @@ const HappychartDashboard = () => {
     return (
         <div className="happychart-container-dash">
             <div className="happychart-title">
-                <h2>Happiness Index</h2>
+                <h2>Emotion Index</h2>
                 <h3>{ayer}</h3>
 
             </div>
