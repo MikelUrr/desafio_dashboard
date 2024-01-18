@@ -15,7 +15,7 @@ const loginApi = async (formData) => {
         });
         if (response.ok) {
             const data = await response.json();
-console.log("holaaaaaaaaaaaaaaa",data)
+
             if (data.result.userType === "user") {
 
                 return new Response(null, { status: 403 });
@@ -67,11 +67,11 @@ const fetchUserData = async () => {
             credentials: "include",  
         });
 
-        console.log("hola", response);
+       
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
+            
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
@@ -90,11 +90,11 @@ const fetchEmotionData = async () => {
             credentials: "include",  
         });
 
-        console.log("hola", response);
+        
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
+          
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
@@ -118,7 +118,7 @@ const fetchTableData = async () => {
         if (response.ok) {
             const data = await response.json();
       
-            console.log("hola", data);
+           
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
@@ -142,7 +142,7 @@ const fetchAllUsersData = async () => {
         if (response.ok) {
             const data = await response.json();
       
-            console.log("hola", data);
+            
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
@@ -161,13 +161,11 @@ const fetchEmotioninfo = async () => {
             
         });
 
-        // Log specific information from the response for debugging
-        console.log("Response Status:", response.status);
-        console.log("Response Headers:", response.headers);
+      
 
         if (response.ok) {
             const data = await response.json();
-            console.log("Data:", data);
+           
             return { response, data };
         } else {
             console.error(`Error in request: ${response.status} - ${response.statusText}`);

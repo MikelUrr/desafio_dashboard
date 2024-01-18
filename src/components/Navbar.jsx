@@ -25,7 +25,7 @@ const Navbar = () => {
   }
 
   const handleItemClick = (index, path) => {
-    console.log(path);
+    
     navigate(path);
   };
 

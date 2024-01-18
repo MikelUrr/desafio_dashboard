@@ -12,7 +12,7 @@ const Userbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { response, data } = await fetchUserData();
-      console.log(data);
+      
 
       if (response.status === 200) {
         setUserData(data);
